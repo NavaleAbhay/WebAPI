@@ -6,10 +6,10 @@ using TflWebAPI.Services.Interfaces;
 namespace TflWebAPI.Services;
 public class DepartmentService:IDepartmentService{
     private readonly IDepartmentRepository _departmentrepo;
-    public DepartmentService(DepartmentRepository departmentRepository){
+    public DepartmentService( IDepartmentRepository departmentRepository){
         this._departmentrepo=departmentRepository;
     }
-    public List<Department> GetAllDepartment()=>_departmentrepo.GetAllDepartment();
+    public  async Task<List<Department>> GetAllDepartment()=> await _departmentrepo.GetAllDepartment();
 
     // public Employee GetEmployeeById(int id)=>_employeerepo.GetEmployeeById(id);
 
